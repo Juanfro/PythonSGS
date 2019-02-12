@@ -15,12 +15,28 @@ números han sido acertados (el programa considerará que se ha acertado un núm
 coincide el valor y la posición).
 """
 
+fin=False
+longitud=0
+
 def mastermind():
-    longitud = int(input("Elige la longitud de la lista de numeros"))
+    longitud = int(input("Elige la longitud de la lista de numeros\n"))
     lista=[]
+    listaIncognito=[]
+    
     for x in range(longitud):
         lista.append(randint(0,9))
+        listaIncognito.append("?")
         
-    print(lista)
+    print("DEBUG", lista)
+    print("DEBUG", listaIncognito)
+    
+    adivinar()
+    
+def adivinar():
+    
+    while not fin:
+        print("Escribe", longitud, "numeros")
+        
+    
     
 mastermind()
