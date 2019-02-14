@@ -30,7 +30,7 @@ def mastermind():
         listaIncognito.append("?")
         
     print("DEBUG", lista)
-    #print("DEBUG", listaIncognito)
+    # print("DEBUG", listaIncognito)
     
     adivinar(longitud)
 
@@ -71,3 +71,32 @@ def calcular_aciertos():
     
     
 mastermind()
+
+"""Ejercicio2
+Escribe un programa que pida dos palabras y diga si riman o no. Si coinciden las tres últimas
+letras tiene que decir que riman. Si coinciden sólo las dos últimas tiene que decir que riman
+un poco y si no, que no riman.
+"""
+
+
+
+
+>>> s[4:]
+'Quijote' # Returns from pos 4 to the end of the string
+>>> s[:4]
+'Don ' # Returns from the beginning to pos 3
+>>> s[:]
+'Don Quijote'
+
+def rima():
+    
+    print("Ejercicio 2")
+    
+    palabra1 = input("Escribe la primera palabra")
+    palabra2 = input("Escribe la segunda palabra")
+    
+    fin1 = palabra1[(len(palabra1)-3):]
+    fin1 = palabra1[(len(palabra2)-3):]
+        
+    
+    
