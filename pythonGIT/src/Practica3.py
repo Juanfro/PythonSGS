@@ -5,7 +5,6 @@ Created on 8 feb. 2019
 '''
 from random import random, randint
 
-
 """ Ejercicio 1
 Escribe un programa que te permita jugar a una versión simplificada del juego Master Mind.
 El juego consistirá en adivinar una cadena de números distintos. Al principio, el programa
@@ -15,28 +14,60 @@ números han sido acertados (el programa considerará que se ha acertado un núm
 coincide el valor y la posición).
 """
 
-fin=False
-longitud=0
+fin = False
+
+lista = []
+listaUsuario = []
+
 
 def mastermind():
     longitud = int(input("Elige la longitud de la lista de numeros\n"))
-    lista=[]
-    listaIncognito=[]
+    # lista = []
+    listaIncognito = []
     
     for x in range(longitud):
-        lista.append(randint(0,9))
+        lista.append(randint(0, 9))
         listaIncognito.append("?")
         
     print("DEBUG", lista)
-    print("DEBUG", listaIncognito)
+    #print("DEBUG", listaIncognito)
     
-    adivinar()
+    adivinar(longitud)
+
     
-def adivinar():
-    
+def adivinar(longitud):
+    fin = False
     while not fin:
-        print("Escribe", longitud, "numeros")
         
+        print("Escribe", longitud, "numeros")
+        listaUsuario.clear()
+        
+        contador = 0        
+        while (contador) < longitud:
+            print("Escribe el numero " , contador + 1)            
+            numeroInput = input("")           
+            numero = int(numeroInput)
+            listaUsuario.append(numero)
+           
+            contador += 1
+        
+        print(listaUsuario)
+        
+        if(listaUsuario == lista):
+            print("Has ganado")
+            fin = True;
+        else:
+            print("has acertado", calcular_aciertos())
+            print("Intentalo de nuevo")
+
+            
+def calcular_aciertos():
+   
+    aciertos = 0
+    for x in range(len(lista)):
+        if (lista[x] == listaUsuario[x]):
+            aciertos += 1
+    return aciertos
     
     
 mastermind()
