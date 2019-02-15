@@ -68,7 +68,7 @@ def calcular_aciertos():
         if (lista[x] == listaUsuario[x]):
             aciertos += 1
     return aciertos
-    
+
     
 mastermind()
 
@@ -79,24 +79,47 @@ un poco y si no, que no riman.
 """
 
 
-
-
->>> s[4:]
-'Quijote' # Returns from pos 4 to the end of the string
->>> s[:4]
-'Don ' # Returns from the beginning to pos 3
->>> s[:]
-'Don Quijote'
-
 def rima():
     
     print("Ejercicio 2")
     
-    palabra1 = input("Escribe la primera palabra")
-    palabra2 = input("Escribe la segunda palabra")
+    palabra1 = input("Escribe la primera palabra\n")
+    palabra2 = input("Escribe la segunda palabra\n")
     
-    fin1 = palabra1[(len(palabra1)-3):]
-    fin1 = palabra1[(len(palabra2)-3):]
+    fin1 = palabra1[(len(palabra1) - 3):]
+    fin2 = palabra2[(len(palabra2) - 3):]
+    
+    if fin1 == fin2:
+        print(palabra1, "rima con", palabra2)
+    elif ((fin1[1:]) == (fin2[1:])):
+        print(palabra1, "rima un poco con", palabra2)
+    else:
+        print(palabra1, "no rima con", palabra2)
+
+
+rima()
+"""Ejercicio 3
+Haz un programa que pida al usuario una cantidad de euros, una tasa de interés y un número
+de años. Muestra por pantalla en cuanto se habrá convertido el capital inicial transcurridos
+esos años si cada año se aplica la tasa de interés introducida.
+
+Recordar que un capital C de euros a un interés del x por cien durante n años se convierte en
+C * (1 + x/100)n
+(años). Probar el programa sabiendo que una cantidad de 10000 euros al 4.5%
+de interés anual se convierte en 24117.14 euros al cabo de 20 años.
+"""
+
+
+def capital():
+    capital = int(input("Escribe tu capital\n"))
+    capitalInicial = capital
+    interes = int(input("Escribe el interés\n"))
+    duracion = int(input("Escribe la duracioión\n"))
+    
+    for x in range(duracion):
+        capital = capital * (1 + (interes / 100))
         
+    print("En", duracion, "años", capitalInicial, "con un interés de", interes, "se convierte en", capital)
     
     
+capital()
